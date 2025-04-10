@@ -39,6 +39,7 @@ if ($installedVersion -eq $null -or $installedVersion -lt $requiredVersion) {
     Start-Process msiexec.exe -ArgumentList "/i", "`"$msiPath`"", "/quiet", "/norestart" -Wait
 } else {
     Write-Host "L'agent GLPI est déjà à jour (version $installedVersion)."
+    Exit
 }
 
 # Redémarrer le service 
